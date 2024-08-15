@@ -33,17 +33,43 @@ async function run() {
         //     res.send(result);
         // })
         app.get('/products', async (req, res) => {
-            const page = parseInt(req.query.page) || 1; // Default to page 1 if not provided
-            const limit = parseInt(req.query.limit) || 10; // Default to 10 products per page
-            const skip = (page - 1) * limit; // Calculate how many products to skip
+            const page = parseInt(req.query.page) || 1;
+            const limit = parseInt(req.query.limit) || 10;
+            const skip = (page - 1) * limit;
 
-            const result = await productCollection.find()
-                .skip(skip) // Skip the number of products based on the current page
-                .limit(limit) // Limit the number of products returned
+            const search = req.query.search || '';
+            const brand = req.query.brand || '';
+            const category = req.query.category || '';
+            const minPrice = parseFloat(req.query.minPrice) || 0;
+            const maxPrice = parseFloat(req.query.maxPrice) || Number.MAX_SAFE_INTEGER;
+            const sort = req.query.sort || '';
+
+            // Create a filter object
+            const query = {
+                ...(search && { productName: { $regex: search, $options: 'i' } }),
+                ...(brand && { brandName: { $regex: brand, $options: 'i' } }),
+                ...(category && { category: { $regex: category, $options: 'i' } }),
+                price: { $gte: minPrice, $lte: maxPrice }
+            };
+
+            // Create a sort object
+            let sortOrder = {};
+            if (sort === 'price-asc') {
+                sortOrder.price = 1; // Low to High
+            } else if (sort === 'price-desc') {
+                sortOrder.price = -1; // High to Low
+            } else if (sort === 'date-desc') {
+                sortOrder.creationDate = -1; // Newest first
+            }
+
+            const result = await productCollection.find(query)
+                .sort(sortOrder)
+                .skip(skip)
+                .limit(limit)
                 .toArray();
 
-            const totalProducts = await productCollection.countDocuments(); // Get total number of products
-            const totalPages = Math.ceil(totalProducts / limit); // Calculate total pages
+            const totalProducts = await productCollection.countDocuments(query);
+            const totalPages = Math.ceil(totalProducts / limit);
 
             res.send({
                 products: result,
@@ -51,6 +77,10 @@ async function run() {
                 currentPage: page
             });
         });
+
+
+
+
 
 
         // Send a ping to confirm a successful connection
