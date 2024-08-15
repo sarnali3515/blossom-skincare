@@ -1,0 +1,62 @@
+[
+    {
+        "productName": "Hydrating Facial Cleanser",
+        "brandName": "AquaFresh",
+        "productImage": "https://example.com/images/hydrating-facial-cleanser.jpg",
+        "description": "A gentle cleanser that hydrates and soothes the skin while removing impurities.",
+        "price": 15.99,
+        "category": "Cleanser",
+        "ratings": 4.5,
+        "creationDate": "2024-08-10T14:35:22Z"
+    },
+    {
+        "productName": "Revitalizing Night Cream",
+        "brandName": "GlowSkin",
+        "productImage": "https://example.com/images/revitalizing-night-cream.jpg",
+        "description": "A rich night cream that nourishes and revitalizes the skin while you sleep.",
+        "price": 25.50,
+        "category": "Moisturizer",
+        "ratings": 4.8,
+        "creationDate": "2024-08-11T09:15:30Z"
+    },
+    {
+        "productName": "SPF 50 Sunscreen",
+        "brandName": "SunShield",
+        "productImage": "https://example.com/images/spf-50-sunscreen.jpg",
+        "description": "A broad-spectrum sunscreen with SPF 50 to protect your skin from harmful UV rays.",
+        "price": 18.75,
+        "category": "Sunscreen",
+        "ratings": 4.7,
+        "creationDate": "2024-08-12T11:45:00Z"
+    },
+    {
+        "productName": "Brightening Vitamin C Serum",
+        "brandName": "RadiantGlow",
+        "productImage": "https://example.com/images/brightening-vitamin-c-serum.jpg",
+        "description": "A potent serum with Vitamin C that brightens the skin and reduces dark spots.",
+        "price": 22.00,
+        "category": "Serum",
+        "ratings": 4.6,
+        "creationDate": "2024-08-13T16:25:18Z"
+    },
+    {
+        "productName": "Anti-Aging Eye Cream",
+        "brandName": "YouthRenew",
+        "productImage": "https://example.com/images/anti-aging-eye-cream.jpg",
+        "description": "An eye cream that reduces the appearance of wrinkles and puffiness around the eyes.",
+        "price": 29.99,
+        "category": "Eye Cream",
+        "ratings": 4.9,
+        "creationDate": "2024-08-14T10:05:42Z"
+    },
+    {
+        "productName": "Gentle Exfoliating Scrub",
+        "brandName": "SmoothSkin",
+        "productImage": "https://example.com/images/gentle-exfoliating-scrub.jpg",
+        "description": "A gentle scrub that exfoliates dead skin cells and leaves the skin smooth and refreshed.",
+        "price": 12.99,
+        "category": "Exfoliant",
+        "ratings": 4.3,
+        "creationDate": "2024-08-15T08:20:15Z"
+    }
+]
